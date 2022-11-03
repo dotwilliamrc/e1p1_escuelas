@@ -1,0 +1,72 @@
+{% extends "Core/base.html" %}
+
+{% block content %}
+
+<div class="row">
+	<form method="post" enctype="multipart/form-data"> {% csrf_token %}
+		<h3 class="text-center">Subir Archivo de Excel</h3>
+		<div class="d-flex justify-content-center">
+			<div class="col-6 text-center">
+				<input type="file" name="datos" class="form-control" />
+				<button type="submit" class="btn btn-success mt-3">Subir</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="row d-flex justify-content-center mt-3">
+	<form method="get" class="mt-3 p-0 col-6 d-flex justify-content-center align-items-center">
+		<div class="row w-100">
+
+			<div class="col-7">
+				<input type="text" class="form-control" id="buscar" placeholder="Buscar" name="buscar">
+			</div>
+
+			<div class="col-3">
+				<select class="form-select form-select h-100" name="option">
+					<option value="todo">Mostrar Todo</option>
+					<option value="escuela">Escuela</option>
+					<option value="alumnos">Alumnos</option>
+				</select>
+			</div>
+			
+			<div class="col-2">
+				<input type="submit" value="Ir" class="btn btn-success h-100 w-100" />
+			</div>
+
+		</div>
+		
+	</form>
+</div>
+
+<div class="d-flex justify-content-center">
+	<div class="col-11">
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">clave</th>
+					<th scope="col">periodos</th>
+					<th scope="col">escuela</th>
+					<th scope="col">alumnos</th>
+					<th scope="col">detalles</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for alumno in alumnos %}
+				<tr>
+					<td scope="row">{{ alumno.registro.escuela.clave }}</td>
+					<td>{{ alumno.registro.periodo.inicio }} - {{ alumno.registro.periodo.fin }}</td>
+					<td>{{ alumno.registro.escuela.nombre }}</td>
+					<td>{{ alumno.total }}</td>
+					<td>
+						<a class="btn btn-primary" href="{% url 'Detalles' alumno.registro.id %}">Ver</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+{% endblock content %}

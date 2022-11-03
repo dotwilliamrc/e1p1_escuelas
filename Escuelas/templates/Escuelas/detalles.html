@@ -1,0 +1,241 @@
+{% extends "Core/base.html" %}
+
+{% block content %}
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h1 class="d-inline">{{ escuela.nombre }}</h1>
+	</li>
+</ul>
+<hr />
+
+<!--Pariodo-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">PERIODO:</h1>
+		<h4 class="d-inline">{{ registro.periodo.inicio }}-{{ registro.periodo.fin }}</h1>
+	</li>
+
+	<!--Educativo-->
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TIPO EDUCATIVO:</h1>
+		<h4 class="d-inline">{{ educativo.tipo_educativo.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">NIVEL EDUCATIVO:</h1>
+		<h4 class="d-inline">{{ educativo.nivel_educativo.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">SERVICIO EDUCATIVO:</h1>
+		<h4 class="d-inline">{{ educativo.servicio_educativo.nombre }}</h1>
+	</li>
+</ul>
+
+<hr />
+<!--Locacion-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CLAVE ENTIDAD:</h1>
+		<h4 class="d-inline">{{ localidad.municipio.entidad.clave }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">ENTIDAD:</h1>
+		<h4 class="d-inline">{{ localidad.municipio.entidad.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CLAVE MUN./DEL:</h1>
+		<h4 class="d-inline">{{ localidad.municipio.clave }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">MUNICIPIO:</h1>
+		<h4 class="d-inline">{{ localidad.municipio.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CLAVE LOCALIDAD:</h1>
+		<h4 class="d-inline">{{ localidad.clave }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">LOCALIDAD:</h1>
+		<h4 class="d-inline">{{ localidad.nombre }}</h1>
+	</li>
+</ul>
+
+<hr />
+
+<!--General-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CLAVE:</h1>
+		<h4 class="d-inline">{{ escuela.clave }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TURNO:</h1>
+		<h4 class="d-inline">{{ general.turno.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">AMBITO:</h1>
+		<h4 class="d-inline">{{ general.ambito.nombre }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CONTROL:</h1>
+		<h4 class="d-inline">{{ general.control.nombre }}</h1>
+	</li>
+</ul>
+
+<hr />
+<!--Direccion-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">DOMICILIO:</h1>
+		{% if direccion.domicilio %}
+			<h4 class="d-inline">{{ direccion.domicilio.nombre }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">NUM. EXTERIOR:</h1>
+		{% if direccion.numero %}
+			<h4 class="d-inline">{{ direccion.numero }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">ENTRE CALLE:</h1>
+		{% if direccion.primera_calle %}
+			<h4 class="d-inline">{{ direccion.primera_calle.nombre }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">Y CALLE:</h1>
+		{% if direccion.segunda_calle %}
+			<h4 class="d-inline">{{ direccion.segunda_calle.nombre }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CALLE POSTERIOR:</h1>
+		{% if direccion.posterior_calle %}
+			<h4 class="d-inline">{{ direccion.posterior_calle.nombre }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CÓDIGO POSTAL:</h1>
+		{% if direccion.codigo_postal %}
+			<h4 class="d-inline">{{ direccion.codigo_postal }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+</ul>
+
+<hr />
+
+<!--Contacto-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">LADA:</h1>
+		{% if contacto.lada %}
+			<h4 class="d-inline">{{ contacto.lada }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TELÉFONO:</h1>
+		{% if contacto.telefono %}
+			<h4 class="d-inline">{{ contacto.telefono }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">CORREO ELECTRÓNICO:</h1>
+		{% if contacto.email %}
+			<h4 class="d-inline">{{ contacto.email }}</h1>
+		{% else %}
+			<h4 class="d-inline">N/A</h1>
+		{% endif %}
+	</li>
+</ul>
+
+<hr />
+
+<!--PERSONAL-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TOTAL PERSONAL:</h1>
+		<h4 class="d-inline">{{ personal.total }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">PERSONAL MUJERES:</h1>
+		<h4 class="d-inline">{{ personal.mujeres }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">PERSONAL HOMBRES:</h1>
+		<h4 class="d-inline">{{ personal.hombres }}</h1>
+	</li>
+</ul>
+
+<hr />
+<!--DOCENTES-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TOTAL DOCENTES:</h1>
+		<h4 class="d-inline">{{ docentes.total }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">DOCENTES MUJERES:</h1>
+		<h4 class="d-inline">{{ docentes.mujeres }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">DOCENTES HOMBRES:</h1>
+		<h4 class="d-inline">{{ docentes.hombres }}</h1>
+	</li>
+</ul>
+
+<hr />
+<!--ALUMNOS-->
+<ul class="d-flex flex-wrap justify-content-center list-unstyled">
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">TOTAL DE ALUMNOS:</h1>
+		<h4 class="d-inline">{{ alumnos.total }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">ALUMNOS MUJERES:</h1>
+		<h4 class="d-inline">{{ alumnos.mujeres }}</h1>
+	</li>
+
+	<li class="d-inline-block m-3">
+		<h4 class="d-inline fw-bold">ALUMNOS HOMBRES:</h1>
+		<h4 class="d-inline">{{ alumnos.hombres }}</h1>
+	</li>
+</ul>
+{% endblock content %}
